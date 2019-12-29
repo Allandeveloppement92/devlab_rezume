@@ -1,12 +1,17 @@
 // App.js
 
 import React from 'react'
-import Formulaire from './Components/Formulaire'
+import Inscription from './Components/Inscription'
 
 export default class App extends React.Component {
   render() {
     return (
-      <Formulaire/>
+      <Inscription/>
     )
   }
 }
+
+
+
+
+
