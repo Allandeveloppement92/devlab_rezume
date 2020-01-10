@@ -1,3 +1,5 @@
+//Connexion
+
 import React, { Component } from 'react';
 import { View, StyleSheet, Button, Text, Image} from 'react-native';
 
@@ -22,7 +24,7 @@ const options = {
     },
     'Mot de passe': {
       error: 'Inserez votre mot de passe',
-      'Mot de passe':true, //Vérifictaion du mot de passe 
+      'Mot de passe':true, //Vérification du mot de passe 
       secureTextEntry:true //Sécurisation de celui-ci
     },
   },
@@ -69,7 +71,6 @@ const styles = StyleSheet.create({
   container: {
     flex:1,
     justifyContent: 'center',
-   // marginTop: 50,
     padding: 20,
     backgroundColor: '#ccebea',
   },

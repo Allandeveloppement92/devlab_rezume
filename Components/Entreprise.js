@@ -1,3 +1,5 @@
+//Inscritpion Entreprise
+
 import React, { Component } from 'react';
 import { View, StyleSheet,Button,Text} from 'react-native';
 
@@ -14,7 +16,7 @@ const User = t.struct({
 "Nom de l'entreprise": t.String,
   'Nom et prénom': t.String, 
   "Email": Email,
-  Téléphone: t.maybe(t.String), // champs facultatif
+  Téléphone: t.maybe(t.String), // champs facultatifs
   'Mot de passe': t.String,
   terms: t.Boolean
 });
@@ -26,7 +28,7 @@ const options = {
         error: "Inserez le nom de l'entreprise"
     },
     "Nom et prénom": {
-      error: 'Inserez votre nom et votre prénom' //message d'erreur si non rempli 
+      error: 'Inserez votre nom et votre prénom' //message d'erreur si vide 
     },
     Email: {
       error: 'Inserez votre adresse mail'

@@ -1,3 +1,5 @@
+//Inscription Etudiants
+
 import React, { Component } from 'react';
 import { View, StyleSheet,Button,Text} from 'react-native';
 
@@ -14,7 +16,7 @@ const User = t.struct({
   Nom: t.String, 
   Prénom: t.String,
   "Email": Email,
-  Téléphone: t.maybe(t.String), // champs facultatif
+  Téléphone: t.maybe(t.String), // champs facultatifs
   'Mot de passe': t.String,
   terms: t.Boolean
 });
@@ -22,7 +24,7 @@ const User = t.struct({
 const options = {
   fields: {
     Nom: {
-      error: 'Inserez votre nom' //message d'erreur si non rempli 
+      error: 'Inserez votre nom' //message d'erreur si vide
     },
     Prénom: {
       error: 'Inserez votre prénom'
@@ -32,7 +34,7 @@ const options = {
     },
     'Mot de passe': {
       error: 'Inserez votre mot de passe',
-      'Mot de passe':true, //Vérifictaion du mot de passe 
+      'Mot de passe':true, //Vérification du mot de passe 
       secureTextEntry:true //Sécurisation de celui-ci
     },
     terms: {
