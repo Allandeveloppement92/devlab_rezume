@@ -11,8 +11,8 @@ const Email = t.refinement(t.String, email => {
 });
 
 const User = t.struct({
-  Nom: t.String, 
-  Prénom: t.String,
+"Nom de l'entreprise": t.String,
+  'Nom et prénom': t.String, 
   "Email": Email,
   Téléphone: t.maybe(t.String), // champs facultatif
   'Mot de passe': t.String,
@@ -21,11 +21,12 @@ const User = t.struct({
 
 const options = {
   fields: {
-    Nom: {
-      error: 'Inserez votre nom' //message d'erreur si non rempli 
+
+    "Nom de l'entreprise": {
+        error: "Inserez le nom de l'entreprise"
     },
-    Prénom: {
-      error: 'Inserez votre prénom'
+    "Nom et prénom": {
+      error: 'Inserez votre nom et votre prénom' //message d'erreur si non rempli 
     },
     Email: {
       error: 'Inserez votre adresse mail'
@@ -53,7 +54,7 @@ export default class App extends Component {
       <View style={styles.container}>
 
         <Text style={styles.title}>Inscription</Text>
-        <Text style={styles.titlebis}>Étudiants</Text>
+        <Text style={styles.titlebis}>Entreprise</Text>
         
         <Form 
           ref={c => this._form = c}

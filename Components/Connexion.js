@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet,Button,Text} from 'react-native';
+import { View, StyleSheet, Button, Text, Image} from 'react-native';
 
 import t from 'tcomb-form-native'; // 0.6.9, importation de la librairie
 
@@ -11,22 +11,12 @@ const Email = t.refinement(t.String, email => {
 });
 
 const User = t.struct({
-  Nom: t.String, 
-  Prénom: t.String,
   "Email": Email,
-  Téléphone: t.maybe(t.String), // champs facultatif
   'Mot de passe': t.String,
-  terms: t.Boolean
 });
 
 const options = {
   fields: {
-    Nom: {
-      error: 'Inserez votre nom' //message d'erreur si non rempli 
-    },
-    Prénom: {
-      error: 'Inserez votre prénom'
-    },
     Email: {
       error: 'Inserez votre adresse mail'
     },
@@ -34,10 +24,6 @@ const options = {
       error: 'Inserez votre mot de passe',
       'Mot de passe':true, //Vérifictaion du mot de passe 
       secureTextEntry:true //Sécurisation de celui-ci
-    },
-    terms: {
-      label: 'Acceptez les termes !',
-      error: 'Veuillez acceptez les termes'
     },
   },
 };
@@ -50,23 +36,30 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+        <View style={styles.container}>
 
-        <Text style={styles.title}>Inscription</Text>
-        <Text style={styles.titlebis}>Étudiants</Text>
-        
-        <Form 
-          ref={c => this._form = c}
-          type={User} 
-          options={options}
-        />
+            <View style={styles.containerA}>
+                <Image
+                    style={styles.logo}
+                    source={require('./../assets/Logo1.png')}
+                />
+            </View>
 
-        <Button
-          title="S'inscrire"
-          onPress={this.handleSubmit}
-        />
+                 <Text style={styles.title}>Connexion</Text>
 
-      </View>
+                <Form 
+                ref={c => this._form = c}
+                type={User} 
+                options={options}
+                />
+
+                <Button
+                style={styles.inscrire}
+                title="Se connecter"
+                onPress={this.handleSubmit}
+                />
+
+        </View>
     );
   }
 }
@@ -76,24 +69,28 @@ const styles = StyleSheet.create({
   container: {
     flex:1,
     justifyContent: 'center',
-    //marginTop: 50,
+   // marginTop: 50,
     padding: 20,
     backgroundColor: '#ccebea',
+  },
+  containerA : {
+
+    justifyContent:'center',
+    alignItems:'center'
+
+
   },
   title: {
 
     textAlign:'center',
     fontSize:40,
-    marginBottom:15,
+    marginBottom:30,
     fontWeight:'bold',
     letterSpacing:1.5
   },
-  titlebis: {
-    textAlign:'center',
-    fontSize:20,
-    marginBottom:25,
-    fontWeight:'bold',
-    letterSpacing:1.5
+  logo: {
+    width: 150, 
+    height: 150,
+    marginBottom:50,
   }
 });
-
